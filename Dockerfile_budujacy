@@ -1,0 +1,14 @@
+# Użyj obrazu bazowego Node.js
+FROM node:latest
+
+# Sklonuj repozytorium
+RUN git clone https://github.com/dsumitro/tic-tac-toe-testing.git /app
+
+# Ustaw katalog roboczy na katalog aplikacji
+WORKDIR /app
+
+# Zainstaluj zależności
+RUN npm install
+
+# Uruchom program po zainstalowaniu zależności
+CMD npm start
