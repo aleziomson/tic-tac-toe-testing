@@ -1,0 +1,14 @@
+
+
+services:
+  pierwsza_usluga:
+    build:
+      context: .
+      dockerfile: Dockerfile_lab02_dopkt8
+
+  druga_usluga:
+    build:
+      context: .
+      dockerfile: Dockerfile_lab02_dopkt8_drugi
+    depends_on:
+      - pierwsza_usluga

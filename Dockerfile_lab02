@@ -1,0 +1,22 @@
+FROM ubuntu:latest
+
+# Aktualizuje repozytoria i instaluje niezbędne narzędzia
+RUN apt-get update && apt-get install -y \
+    git \
+    npm \
+    nodejs
+
+# Instaluje narzędzie jest globalnie
+RUN npm install -g jest
+
+# Ustawia katalog roboczy na /app
+WORKDIR /app
+
+# Klonuje repozytorium
+RUN git clone https://github.com/dsumitro/tic-tac-toe-testing .
+
+# Instaluje zależności
+RUN npm install
+	
+# Uruchamia testy
+CMD ["npm", "test"]

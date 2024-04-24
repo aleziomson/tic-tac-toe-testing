@@ -1,0 +1,8 @@
+
+FROM obraz2
+
+# Utwórz katalogi input i output
+RUN mkdir /input && mkdir /output
+
+# Użyj flagi V do zamontowania katalogów input i output jako woluminy
+VOLUME ["/input", "/output"]
