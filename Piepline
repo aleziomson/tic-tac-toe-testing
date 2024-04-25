@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    triggers {
+        pollSCM('* * * * *')
+    }
+    
+    stages {
+        stage('Pull') {
+            steps {
+                git branch: 'main', credentialsId: 'c6f670c6-e9dd-48da-9c26-29ee5a340dea', url: 'https://github.com/aleziomson/tic-tac-toe-testing'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Building..."
+                sh '''
+                docker build -t obraz_budujacy -f Dockerfile_budujacy .
+                '''
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo "Testing..."
+                sh '''
+                docker build -t obraz_testujacy -f Dockerfile_lab02 .
+                '''
+            }
+        }
+    }
+}
