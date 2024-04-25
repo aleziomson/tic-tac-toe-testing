@@ -1,11 +1,5 @@
 FROM ubuntu:latest
 
-# Aktualizuje repozytoria i instaluje niezbędne narzędzia
-RUN apt-get update && apt-get install -y \
-    git \
-    npm \
-    nodejs
-
 # Instaluje narzędzie jest globalnie
 RUN npm install -g jest
 
