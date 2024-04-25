@@ -1,0 +1,7 @@
+FROM obraz_dockerfile_lab02_dopkt8
+
+# Ustawienie katalogu roboczego
+WORKDIR /app
+
+# Uruchomienie testów
+CMD ["npm", "test"]
