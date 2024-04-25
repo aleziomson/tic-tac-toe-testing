@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-
+#Sprawdzam czy śmiga
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y git
