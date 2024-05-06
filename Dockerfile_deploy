@@ -1,0 +1,8 @@
+FROM nginx
+
+COPY . /usr/share/nginx/html
+
+# Port, na którym będzie działać serwer Nginx
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
